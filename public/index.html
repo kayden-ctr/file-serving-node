@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-     <link rel="stylesheet" href="/style.css">
-    <title>Dimasacat's File Server</title>
+    <title>Node.js File Server</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -12,12 +12,29 @@
     <h2>Upload a File</h2>
 
     <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="file" name="file" required />
+        <input type="file" name="file" id="fileInput" required />
+        <p id="selectedFile">No file selected</p>
         <button type="submit">Upload</button>
     </form>
 
     <p>Allowed file types: JPG, PNG, PDF</p>
     <p>Maximum size: 5MB</p>
+
+    <h2>Uploaded Files</h2>
+    <!--UPLOADS_LIST-->
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const selectedFile = document.getElementById('selectedFile');
+
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                selectedFile.textContent = "Selected file: " + fileInput.files[0].name;
+            } else {
+                selectedFile.textContent = "No file selected";
+            }
+        });
+    </script>
 
 </body>
 </html>
