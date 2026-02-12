@@ -1,4 +1,4 @@
-/* Reset some default styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,9 +6,9 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Body styling */
+
 body {
-    background-color: #000; /* black background */
+    background-color: #000; 
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -20,7 +20,7 @@ body {
     background-size: cover;
 }
 
-/* Headings */
+
 h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
@@ -32,9 +32,8 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Glass panel for form */
 form {
-    background: rgba(255, 255, 255, 0.05); /* semi-transparent glass effect */
+    background: rgba(255, 255, 255, 0.05); 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     padding: 30px;
@@ -47,7 +46,7 @@ form {
     text-align: center;
 }
 
-/* File input styling */
+
 input[type="file"] {
     padding: 10px;
     border-radius: 10px;
@@ -56,9 +55,9 @@ input[type="file"] {
     color: #fff;
 }
 
-/* Upload button styling */
+
 button {
-    background-color: #FFD700; /* yellow button */
+    background-color: #FFD700; 
     color: #000;
     border: none;
     padding: 12px 20px;
@@ -73,7 +72,6 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Paragraphs */
 p {
     font-size: 0.9rem;
     color: #ccc;
@@ -81,7 +79,6 @@ p {
     margin-top: 10px;
 }
 
-/* Responsive */
 @media (max-width: 500px) {
     form {
         width: 90%;

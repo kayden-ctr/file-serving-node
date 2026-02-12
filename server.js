@@ -6,22 +6,19 @@ const formidable = require('formidable');
 
 const uploadDir = path.join(__dirname, 'uploads');
 
-// Ensure uploads folder exists
 if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir);
 }
 
 const server = http.createServer((req, res) => {
 
-    // =========================
-    // HANDLE FILE UPLOAD
-    // =========================
+
     if (req.method === 'POST' && req.url === '/upload') {
 
         const form = new formidable.IncomingForm({
             uploadDir: uploadDir,
             keepExtensions: true,
-            maxFileSize: 5 * 1024 * 1024 // 5MB limit
+            maxFileSize: 5 * 1024 * 1024 
         });
 
         form.parse(req, (err, fields, files) => {
@@ -44,7 +41,7 @@ const server = http.createServer((req, res) => {
             ];
 
             if (!allowedTypes.includes(file.mimetype)) {
-                // Delete invalid file
+           
                 fs.unlink(file.filepath, () => {});
 
                 res.writeHead(400, { 'Content-Type': 'text/html' });
@@ -58,9 +55,6 @@ const server = http.createServer((req, res) => {
         return;
     }
 
-    // =========================
-    // SERVE STATIC FILES
-    // =========================
     let filePath = path.join(
         __dirname,
         'public',
